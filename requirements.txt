@@ -1,1 +1,8 @@
+pandas
+numpy
+nltk
+torch
+transformers
+matplotlib
+wordcloud
 
