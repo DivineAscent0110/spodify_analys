@@ -1,1 +1,10 @@
+# 忽略数据、模型、日志
+data/
+models/
+logs/
+outputs/
+
+# Python cache
+__pycache__/
+*.pyc
 
