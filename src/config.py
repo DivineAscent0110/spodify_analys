@@ -1,3 +1,5 @@
+from dataclasses import dataclass
+
 @dataclass
 class Config:
     model_name: str = 'microsoft/deberta-v3-base'
@@ -12,5 +14,11 @@ class Config:
     log_dir: str = 'logs/'
 
     dropout_prob: float = 0.1
-    freeze_backbone: bool = True
+    freeze_backbone: bool = False
     use_softmax: bool = False
+    early_stopping_patience: int = 2
+
+    gradient_accumulation_steps: int = 1
+    use_amp: bool = True
+
+    task_type: str = 'single_label'  # 'single_label' or 'multi_label'
