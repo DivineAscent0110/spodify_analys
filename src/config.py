@@ -12,5 +12,5 @@ class Config:
     log_dir: str = 'logs/'
 
     dropout_prob: float = 0.1
-    freeze_backbone: bool = False
+    freeze_backbone: bool = True
     use_softmax: bool = False
