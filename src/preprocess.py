@@ -18,8 +18,14 @@ def preprocess_text(text):
     return ' '.join(tokens)
 
 def clean_data(df):
-    df = df.dropna(subset=['review_text', 'review_rating'])
-    df = df[(df['review_rating'] >= 1) & (df['review_rating'] <= 5)]
+    # ==============================
+    # Clean and filter dataset
+    # 保证数据质量，删除无效行，处理异常标签
+    # ==============================
+    if 'review_rating' in df.columns:
+        df = df.dropna(subset=['review_text', 'review_rating'])
+        df = df[(df['review_rating'] >= 1) & (df['review_rating'] <= 5)]
+    else:
+        df = df.dropna(subset=['review_text', 'labels'])
     df['processed_review_text'] = df['review_text'].apply(preprocess_text)
     return df
-
